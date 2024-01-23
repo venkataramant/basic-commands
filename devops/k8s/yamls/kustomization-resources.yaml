@@ -1,0 +1,7 @@
+namespace: mynamespace
+commonLabels:
+   team: helix
+resources:
+- pod.yaml
+patchesStrategicMerge:
+- security-context.yaml

@@ -1,0 +1,27 @@
+---
+apiVersion: kubeadm.k8s.io/v1beta3
+kind: ClusterConfiguration
+kubernetesVersion: stable
+controlPlaneEndpoint: "LOAD_BALANCER_DNS:LOAD_BALANCER_PORT" # change this (see below)
+etcd:
+   external:
+      endpoints:
+      - https://ETCD_0_IP:2379 # change ETCD_0_IP appropriately
+      - https://ETCD_1_IP:2379 # change ETCD_1_IP appropriately
+      - https://ETCD_2_IP:2379 # change ETCD_2_IP appropriately
+      caFile: /etc/kubernetes/pki/etcd/ca.crt
+      certFile: /etc/kubernetes/pki/apiserver-etcd-client.crt
+      keyFile: /etc/kubernetes/pki/apiserver-etcd-client.key
+   local:
+      serverCertSANs:
+      - ${HOST}
+      peerCertSANs:
+      - ${HOST}
+      extraArgs:
+         initial-cluster: ${NAMES[0]}=https://${HOSTS[0]}:2380,${NAMES[1]}=https://${HOSTS[1]}:2380,${NAMES[2]}=https://${HOSTS[2]}:2380
+         initial-cluster-state: new
+         name: ${NAME}
+         listen-peer-urls: https://${HOST}:2380
+         listen-client-urls: https://${HOST}:2379
+         advertise-client-urls: https://${HOST}:2379
+         initial-advertise-peer-urls: https://${HOST}:2380

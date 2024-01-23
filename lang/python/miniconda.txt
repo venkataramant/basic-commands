@@ -1,0 +1,1 @@
+https://repo.anaconda.com/miniconda/Miniconda3-py311_23.11.0-2-MacOSX-arm64.sh

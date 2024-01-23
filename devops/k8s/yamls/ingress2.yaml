@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+   annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
+      nginx.ingress.kubernetes.io/ssl-redirect: false
+   generation: 1
+   name: ingress-my-paths
+   namespace: app-space
+spec:
+   rules:
+   -  http:
+         paths:
+         -  backend:
+               service:
+                  name: videoservice
+                  port:
+                     number: 8080
+            path: /streaming
+            pathType: Prefix
+         -  backend:
+               service:
+                  name: wearservice
+                  port:
+                     number: 8080
+            path: /wearing
+            pathType: Prefix
+         -  backend:
+               service:
+                  name: videoservice
+                  port:
+                     number: 8080
+            path: /watching
+            pathType: Prefix

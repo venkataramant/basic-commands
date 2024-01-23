@@ -1,0 +1,4 @@
+db_host: mysql1-service
+db_user: <<myuser>>
+db_password: <<pass>>
+service_port: 3000

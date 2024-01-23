@@ -1,0 +1,12 @@
+$ docker images
+REPOSITORY                                       TAG       IMAGE ID       CREATED         SIZE
+kindest/node                                     <none>    3ad6472a8f2d   11 months ago   961MB
+rancher/mirrored-flannelcni-flannel              v0.17.0   9247abf08677   19 months ago   59.8MB
+k8s.gcr.io/kube-apiserver                        v1.23.4   62930710c963   19 months ago   135MB
+k8s.gcr.io/kube-proxy                            v1.23.4   2114245ec4d6   19 months ago   112MB
+k8s.gcr.io/kube-scheduler                        v1.23.4   aceacb6244f9   19 months ago   53.5MB
+k8s.gcr.io/kube-controller-manager               v1.23.4   25444908517a   19 months ago   125MB
+rancher/mirrored-flannelcni-flannel-cni-plugin   v1.0.1    ac40ce625740   20 months ago   8.09MB
+k8s.gcr.io/etcd                                  3.5.1-0   25f8c7f3da61   22 months ago   293MB
+k8s.gcr.io/coredns/coredns                       v1.8.6    a4ca41631cc7   23 months ago   46.8MB
+k8s.gcr.io/pause 

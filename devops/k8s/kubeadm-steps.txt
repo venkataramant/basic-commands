@@ -1,0 +1,91 @@
+
+# kubeadm/kubelet
+
+apt-get update
+apt-get upgrade
+sudo apt-cache madison kubeadm
+apt cache kubeadm
+apt list kubeadm -a
+#apt-get install kubeadm=1.28.0-00
+
+sudo apt-get install -y apt-transport-https ca-certificates curl
+mkdir /etc/apt/keyrings/
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+apt install ebtables ethtool
+
+
+
+# apt-get install kubeadm=1.27.0-00
+
+curl -LO https://dl.k8s.io/release/v1.27.0/bin/linux/amd64/kubectl
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check k
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+sudo apt-get update ??
+# apt-transport-https may be a dummy package; if so, you can skip that package
+sudo apt-get install -y apt-transport-https ca-certificates curl
+
+mkdir /etc/apt/keyrings/
+
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.27/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+
+
+# This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.27/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+
+arch
+uname -a
+uname
+cat /etc/lsb-release
+
+#####
+sudo apt-mark unhold kubelet kubectl && sudo apt-get update && sudo apt-get install -y kubelet=1.23.5-00 kubectl=1.23.5-00 && sudo apt-mark hold kubelet kubectl
+
+sudo apt-mark unhold kubeadm && sudo apt-get update && sudo apt-get install -y kubeadm=1.23.5-00 && sudo apt-mark hold kubeadm
+sudo apt-get update && sudo apt-get install -y --allow-change-held-packages kubeadm=1.23.5-00
+
+###########3
+sudo apt-get update
+sudo apt-get install -y kubelet=1.27.0-2.1 kubeadm=1.27.0-2.1
+# kubectl=1.27.0-2.1
+sudo apt-mark hold kubelet kubeadm 
+
+
+# 
+journalctl -xeu kubelet
+
+# Network Plugins
+https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/
+
+** weave-net **
+kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+kubectl apply -f “https://cloud.weave.works/k8s/net?k8s-version=$ 41(kubectl version | base64 | tr -d ‘\n’)”
+
+echo "net.bridge.bridge-nf-call-iptables=1" | sudo tee -a /etc/sysctl.conf
+
+## flannel
+/run/flannel/subnet.env 
+
+curl -LO https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
+
+ kubeadm init --apiserver-cert-extra-sans=controlplane --apiserver-advertise-address=192.2.143.9 --pod-network-cidr=10.244.0.0/16 --cri-socket=unix:///var/run/containerd/containerd.sock --dry-run  
+
+ 
+ kubeadm init --apiserver-cert-extra-sans=controlplane --apiserver-advertise-address=`hostname -i` --pod-network-cidr=10.244.0.0/16 --cri-socket=unix:///var/run/containerd/containerd.sock --dry-run  
+ 
+ ----------
+ 
+ /var/lib/kubelet/kubeadm-flags.env
+ --container-runtime-endpoint=unix:///run/containerd/containerd.sock
+ 
+ 
+ /var/lib/kubelet/config.yaml 
+ clusterDNS:
+- 10.96.0.10
+
+/etc/kubernetes/manifests/kube-apiserver.yaml 
+- --service-cluster-ip-range=10.96.0.0/12

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-consuming-pvc
+  namespace: persistence
+spec:
+ volumes:
+  - name: app-consuming-volume
+    persistentVolumeClaim:
+      claimName: data-pvc
+ containers:
+   - name: app-consuming-pvc
+     image: alpine
+     volumeMounts:
+       - name: app-consuming-volume
+         mountPath: /mnt/data
+     command:
+      - /bin/sh
+      - -c
+      - "while true; do sleep 50; done;"

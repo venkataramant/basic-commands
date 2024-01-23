@@ -1,0 +1,10 @@
+IaaS:
+	Share compute resources using VMs 
+	by virtualizing the hardware using virtual machines
+
+	Configurable System
+
+Container:
+	Is an invisible box around your code and its depedencies.
+	Limited access to partition of the file system.
+	Requires only few system calls to create/start as quick as possible.

@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+   name: batch
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+   name: logs-config
+   namespace: batch
+data:
+   dir: /etc/logs/traffic.log
+   myname: sowhat
+   ami: yesyoudo
+---
+apiVersion: v1
+kind: Pod
+metadata:
+   name: nginx
+   namespace: batch
+spec:
+   volumes:
+   - name: vol-cm1
+     configMap:
+       name: logs-config
+
+
+
+   containers:
+   -  name: nginx
+      image: nginx:1.21.1
+      env:
+      - name: log-dir
+        valueFrom:
+         configMapKeyRef:
+            name: logs-config
+            key: dir
+      envFrom:
+         - configMapRef:
+            name: logs-config

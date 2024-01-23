@@ -1,0 +1,13 @@
+1) git clone URL -b <branch_name> <optional_folder>
+2) git pull origin <branch_name>
+3) git push origin <branch_name>
+4) git status
+5) git diff <path_of_file>
+6) git add <path_of_file>
+7) git reset <path_of_file>
+8) git checkout <file_name>
+9) git check <branch_name>?
+10) git revert
+11) git stash
+11) git rebase origin ? git pull rebase origin master?
+

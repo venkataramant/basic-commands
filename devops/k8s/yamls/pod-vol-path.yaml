@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busy-box-vol
+spec: 
+  containers:
+  - name: mybusy-box
+    image: busybox
+    command: ["echo 'hello' >> /log/app.log; sleep 300; cat /log/app.log "]
+    volumeMounts:
+      - mountPath: /log
+        name: log-val
+  volumes:
+    - name: log-val
+      hostPath:
+        path: /var/log/raman
+        type: Directory

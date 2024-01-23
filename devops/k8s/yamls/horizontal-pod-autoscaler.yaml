@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+   name: frontend-scaler
+spec:
+   minReplicas: 3
+   maxReplicas: 10
+   scaleTargetRef:
+      kind: ReplicaSet
+      name: frontend
+
+   targetCPUUtilizationPercentage: 50

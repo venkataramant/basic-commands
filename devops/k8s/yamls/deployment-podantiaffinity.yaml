@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-antiaffinity-1
+  labels: 
+    app: deployment-antiaffinity
+spec:
+  selector:
+    matchLabels:
+      app: kca-prep-antiaffinity
+  replicas: 4
+  template:
+    metadata:
+      labels: 
+        app: kca-prep-antiaffinity
+    spec:
+     tolerations:
+       - key: node-role.kubernetes.io/master
+         operator: Exists
+         effect: NoSchedule
+     affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - kca-prep-antiaffinity
+            topologyKey: kubernetes.io/hostname
+
+     containers:
+       - name: mypod
+         image: nginx
+
+

@@ -1,0 +1,1 @@
+https://medium.com/@dariobit/streamline-kubernetes-management-gitops-with-flux-and-kustomize-52300168c1c8
