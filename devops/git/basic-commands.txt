@@ -10,4 +10,5 @@
 10) git revert
 11) git stash
 11) git rebase origin ? git pull rebase origin master?
-
+12) git merge --squash feature/feature123
+13) git rebase -i HEAD~N

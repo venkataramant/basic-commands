@@ -93,7 +93,7 @@ https://colab.research.google.com
     Structured Data [Non Sequential]
         Numeric Data
         Categorical Data.
-        
+
         
 
 

@@ -35,3 +35,4 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 # Added by Raman as per https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll
 gem "github-pages", "~> 228", group: :jekyll_plugins
+gem "webrick", "~> 1.8"
