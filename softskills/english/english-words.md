@@ -1,5 +1,4 @@
 # A
-
     aggregated
     aforementioned
     accomplished
@@ -10,7 +9,6 @@
     Appreciate
     arbitrary
     adopt
-
     adhering
     Administration
     acute
@@ -19,7 +17,6 @@
     anonymous
     Anxious
     Apathetic
-
     Adopt
     Aforementioned
     Accomplished
@@ -28,10 +25,15 @@
     Approach
     Arbitrary
     Analytics
-
-
+    aesthetic
+    Analogies
+    alleviate
+    Apprehensions
+    Appropriate
+    assessment
+    acronym
+    Acumen
     archy
-
     Adopt
     Aforementioned
     Accomplished
@@ -40,23 +42,39 @@
     Approach
     Arbitrary
     Analytics
-
-
+    augement
     archy
-
+    Adversarial
+    Anaomaly
+    aesthetic
+    aligned
+    attention and excitment
+    accurate
+    Advocating
+    Awesome
 
 # B
+    Barriers
+    botique
+    Best Defence is good Offense.
+    blurred
     best-of-breed
     best part
     Barriers
     blip
     boilerplate code
     Brittle
+    building skills beyond technology
+    broader landscape
+    Breachs
+    blurcrucial
+
 
 # C
 
     Caveats
     canary
+    Cascading failures
     cielo
     Confidential
     constituent*
@@ -83,18 +101,39 @@
     content
     Curious
     Culinary
+    contextual response
+    consequence
+    curate
+    caveat
+    Canary
+    Caveats
+    cohesive
+    compact
+    comprehensive
+    compromised
+    constituent*
+    containerized
+    content
+    colloquial
+    crawling,indexing and ranking
+
 
 # D
-    Dazzle -- (of a bright light) blind (a person) temporarily.
     declarative
-    defragment and
+    defragment
+    Different
+    Dimensional
+    Disposable
+    Distinguished
+    Dazzle -- (of a bright light) blind (a person) temporarily.
     delve [reach inside a receptacle and search for something]
+    Decimated
     different
-    dimensional
-    disposable
-    distinguished
     disciplines
-    
+    Difference is though
+    Diffusion
+    dull dirty difficult dangerous
+    devoid
     
 # E
     Ephemeral
@@ -102,20 +141,51 @@
     ephemeral
     embeds
     encompasses [surround and have or hold within. cause (something) to take place.]
+    expertise
+    erode
+    explicitly
+    embeds
+    ephemeral
+    Exploit [Use (a situation or person) in an unfair or selfish way.]
+    embeds
+    ephemeral
+    exponential development
 
 # F
     Fiercely
     Foe
     Foster
     frown
-    
+    Forgery
+    factual answer
+    fraudulent
+    Flaws
+    Far and wide
+    Facets [one side of something many-sided, especially of a cut gem.]
+    Funnel [a tube or pipe that is wide at the top and narrow at the bottom, used for guiding liquid or powder into a small opening.]
+    forensic
+    Fragment
+    Far and wide
     
 # G
     Graceful
+    Graceful
+    Gauge [an instrument or device for measuring the magnitude, amount]
+    guardrails
+    Great
 # H
     Harness
     Hoarding
     Hitch
+    Hier
+    Hierarchy
+    hydrants
+    Humility
+    Humble -- a modest or low view of one's own importance; humbleness.
+    Harness these tools
+    hone my language
+    hallunication
+    havning conversations
 
 # I
     isolated
@@ -129,51 +199,15 @@
     illustrious
     imminent
     Infringements.
-
-
-
-
-
-
-
-# D
-    declarative
-    defragment
-    Different
-    Dimensional
-    Disposable
-    Distinguished
-
-
- 
-# E
-
-    embeds
-    ephemeral
-    Exploit [Use (a situation or person) in an unfair or selfish way.]
-
-# F
-    Far and wide
-    Facets [one side of something many-sided, especially of a cut gem.]
-    Funnel [a tube or pipe that is wide at the top and narrow at the bottom, used for guiding liquid or powder into a small opening.]
-    forensic
-    Fragment
-
-
-# G
-    Graceful
-    Gauge [an instrument or device for measuring the magnitude, amount]
-
-# H
-    Hier
-    Hierarchy
-    hydrants
-    Humility
-    Humble -- a modest or low view of one's own importance; humbleness.
-
-
-# I
-    Idempotent
+    Imperative
+    interpersonal emotional creative skills
+    Implications
+    inferiar
+    Imperative
+    interpersonal emotional creative skills
+    Implications
+    inferiar
+     Idempotent
     Immutability
     Impairs
     Implicit
@@ -183,74 +217,36 @@
     Insomnia
     Introspection
     Isolated
-
-
-Canary
-Caveats
-cohesive
-compact
-comprehensive
-compromised
-constituent*
-containerized
-content
-
-
-
-
-# D
-declarative
-defragment
-Different
-Dimensional
-Disposable
-Distinguished
-
-
- 
-# E
-
-embeds
-ephemeral
-
-# F
-Far and wide
-forensic
-Fragment
-
-
-# G
-Graceful
-
-# H
-Hier
-Hierarchy
-hydrants
-
-
-# I
-Idempotent
-Immutability
-Impairs
-Implicit
-Impersonation
-Imminent
-Insomnia
-Introspection
-Isolated
-
-
-
+    Idempotent
+    Immutability
+    Impairs
+    Implicit
+    Impersonation
+    Imminent
+    Insomnia
+    Introspection
+    Isolated
+    Interviewees
+    inference methods to draw conclusions
+    impact vulnerable 
+    Interviewees
+    inference methods to draw conclusions
+    impact vulnerable 
+    Interviewees
+    inference methods to draw conclusions
+    impact vulnerable 
+    Imperative
+    interpersonal emotional creative skills
+    Implications
+    inferiar
 # J
+    jargon
+    jewelery
 # K
 # L
     Lettuce
-
-
-
+    legislation
 # M
-
-
 
     mandate
     maintenance
@@ -262,24 +258,40 @@ Isolated
 	mere
 	Mundane
     Monolithic
-
-
     malicious
     mandate
     maintenance
     mere
     Mundane
-
-
-
+    more relevant and authoritative
+    maintain context and understand  intent
+    mediocrity
+    manifest
+    mediocrity
 
 # N
+    Nerd
+    Nervous
+    navigating the new water
 # O
 
     Opaque
     Overwhelmed
+    Obligation
+    Opportunities
+    overcome fears and challenges,biases
+    obvious
+    Obligation
+    Opportunities
+    obsolescence
+    on varierty of factors
+    obsolete
+    overcome fears and challenges,biases
 
 # P
+    proficiency
+    Probably
+    privacy
     Probably
     partitions
     primitive
@@ -291,19 +303,19 @@ Isolated
     phenomenon
     pit [a large hole in the groun]
     pitfalls [a hidden or unsuspected danger or difficulty.]
-
     Predator and Prey
-    
-
-	
-    
+    Prevent, Detect and Eliminate
+    Possibilites are endless.
+    prose
+    perpetuate
+    Prompt
+    possibilites are limitless
 	primitive
     Proportional scaling
     preferences
     Precise
     Precious
     primitive
-	
     prejudice
     preval
     primitive
@@ -312,10 +324,13 @@ Isolated
     Persistence [the quality that allows someone to continue doing something or trying to do something even though it is difficult or opposed by other people.]
 	Proportional scaling
 	Probably
-
-
-
-
+    prose
+    perpetuate
+    Prompt
+    possibilites are limitless
+    proficiency
+    Probably
+    privacy
 
 # Q
 
@@ -323,6 +338,7 @@ Isolated
 # R
     Receptacle [an object or space used to contain something.]
     Receptive  [  able or inclined to receive.   ]
+    Redacted
     Resemble
     resurrect
     requirements
@@ -338,32 +354,15 @@ Isolated
     regiment
     rein [a long, narrow strap attached at one end to a horse's bit, typically used in pairs to guide or check a horse while riding or driving.]
     Repetitive
-    requirements
-    resurrect
-    resilience
-    *resilient*:
-     
-    able to recoil or spring back into shape after bending, stretching, or being compressed.
-
-
-
-    regimen
-    regiment
-
-    requirements
-    resurrect
-    resilience
-    *resilient*:
-     
-    able to recoil or spring back into shape after bending, stretching, or being compressed.
-
-
-
+    roundout
+    Regulatory
+    retrieve
 
 # S
     Salad
     slicing and dicing the resources 
     semaphores
+    Sentinel - a soldier or guard whose job is to stand and keep watch.
     Succeeded
     specifications
     sparingly
@@ -374,18 +373,13 @@ Isolated
     strin
     Structured 
     susceptible*
-
-
     scaffolding
-    
     Succeeded
     specifications
     sparingly
     Snuff
     strictest
     susceptible*
-
-
     Scattered
     semaphores
     stifle
@@ -400,20 +394,34 @@ Isolated
     stuck
     salvaged
     scepticism
+    slavishly
+    stakeholders
+    slang
+    Spectrum
+    steward
+    synthesize
+    synthesis
+    slavishly
+    stakeholders
+    slang
+    Spectrum
+    steward
+    synthesize
+    synthesis
+    sparkle
+    stuck
 
 # T 
-
     tenancy
     Topoloy
-    
+    Transcends
     Trait
     Trajectory
     throttle
-
 	tight coupling 
 	tenancy
 	Topoloy
-	stuck
+	
 	throttle
 	threats
 	trait
@@ -426,10 +434,18 @@ Isolated
     threats
     trait
     trivial. -- little value/Important
-
-
+    Taciturn
+    treasury
+    thrive
+    tinkering
+    thoughtfulness in our queries
+    Transitional quality
+    transparency fairness empathy and responsibility
+    Transcends
+    thoughtful ,robust and comprehensive
 
 # U
+understand and interpret
 # V
     Vastly
     vital
@@ -437,135 +453,15 @@ Isolated
     Value Propositions
     volatility
     vibecession
-
-vulnerabilities
-
-
-vulnerabilities
-
+    Variational
+    vulnerabilities
+    Verizon
 
 # W
     Whilst
+    wider varierty 
+    what did you mean by what you asked.
 # X
 # Y
+    Yield
 # Z
-
-
-# Others
-    
-synthesis
-broader landscape
-mediocrity
-Adversarial
-Anaomaly
-Diffusion
-Forgery
-aesthetic
-Difference is though
-Transitional quality
-fraudulent
-Variational
-Flaws
-Breachs
-Yield
-Imperative
-Transcends
-
-interpersonal emotional creative skills
-dull dirty difficult dangerous
-Implications
-thrive
-proficiency
-crucial
-transparency fairness empathy and responsibility
-overcome fears and challenges,biases
-blur blurred
-
-roundout
-inferiar
-curate
-augement
-
-manifest
-mediocrity
-Great, Awesome
-devoid
-sparkle
-obsolescence
-obsolete
-exponential development
-havning conversations
-
-crawling,indexing and ranking
-
-on varierty of factors
-more relevant and authoritative
-Probably
-privacy
-inference methods to draw conclusions
-wider varierty 
-aligned
-attention and excitment
-what did you mean by what you asked.
-understand and interpret
-retrieve
-maintain context and understand  intent
-obvious
-factual answer
-caveat
-hallunication
-accurate
-contextual response
-
-navigating the new water
-synthesize
-thoughtful ,robust and comprehensive
-Harness these tools
-tinkering
-hone my language
-botique
-aesthetic
-colloquial 
-jargon
-slang
-Analogies
-guardrails
-possibilites are limitless
-thoughtfulness in our queries
-alleviate
-prose
-legislation
-Prompt
-Nerd
-slavishly
-Obligation
-Advocating
-Opportunities
-Apprehensions
-Appropriate
-perpetuate
-Interviewees
-expertise
-erode
-explicitly
-spectrum
-Regulatory
-Barriers
-consequence
-assessment
-acronym
-stakeholders
-impact vulnerable 
-building skills beyond technology
-steward
-Acumen
-Nervous
-Taciturn
-treasury
-jewelery
-
-Prevent, Detect and Eliminate
-Best Defence is good Offense.
-
-Possibilites are endless.
-
