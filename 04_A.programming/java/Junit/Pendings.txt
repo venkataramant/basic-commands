@@ -1,0 +1,88 @@
+https://www.youtube.com/watch?v=Ai9Y84WUqBE
+https://www.youtube.com/watch?v=e6GAfk3ACVw
+https://www.youtube.com/watch?v=vZm0lHciFsQ
+
+Fixtures
+	@BeforeClass
+	@AfterClas
+	@Before
+	@After
+	@Test
+	@Ignore
+Test Suites
+	@RunWith(org.junit.runners.Suite)
+	@SuiteClasses({Test1.class,Test2.class})
+	
+	@Suite
+Test runner
+	org.junit.runner.JunitCore
+	
+	Result result=JunitCore.runClasses(Test1.class,Test2.class)
+	Arrays.stream(result.getFailures()).forEach(failure-> System.out.println(failure.toString()))
+	result.wasSuccessful()
+Junit Classes
+	Assert
+	TestCase
+	TestResult
+	TestSuite
+	
+Assert
+	assertEquals(2 boolean parameters)
+	assertFalse(1 boolean parameter)
+	assertTrue(1 boolean parameter)
+	
+	assertNotNull(Object)
+	assertNull(Object)
+	
+	fail()
+
+TestCase
+	countTestCases()
+	createResult()
+	getName()
+	run()
+	run(TestResult)
+	setName(String)
+	setUp()
+	tearDown()
+	toString()
+	
+	@BeforeClass
+	@AfterClas
+	@Before
+	@After
+	@Test
+	@Ignore
+TestResult
+	MyTestResult extends TestResult
+	
+	addError(Test,Throwable)
+	addFailure(Test,AssertionFailedError)
+	endTest()
+	
+	Enumeration<TestFailure> errors()
+	errorCount()
+	runCount()
+	failureCount()
+	
+	run()
+	startTest()
+	stop()
+TestSuite
+	addTest(Test)
+	addTestSuite(Testsuite)
+	countTestCases()
+	
+	
+	getName()
+	setName(String)
+	
+	
+	run(TestResult)
+	testAt(int)
+	
+	testCount()
+	
+	Test waring(String)
+
+	

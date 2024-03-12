@@ -1,4 +1,0 @@
-
-https://medium.com/geekculture/how-to-calculate-server-max-requests-per-second-38a39bb96a85
-
-https://medium.com/postzen/geohashes-and-you-aa7e3c034fd2

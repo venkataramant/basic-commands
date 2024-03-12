@@ -1,0 +1,473 @@
+
+# Requirements
+    Fault Tolerance
+    Concurrency
+    Dedupe
+
+# HTTP Headers
+    keep-alive
+
+# CDN Cost Optimizations
+    1. Store only most popular content or high demand content
+    2. Keep regional specific demand content in those specific CDN servers
+    3. For Low prefequence, try to explore to download from Original source
+    4. Try to compress or encode on demand for low frequent contents
+
+    # Evolution
+
+# Step 1: Single Layer for Application and Data
+    
+    Single Instance
+        Application + Database Server
+    Scaling:
+        Vertical scaling
+    Issue:
+        Single Point of Failure
+        Exposed data and process directly to internet.
+# Step 2: Separation of Application and Data Layers
+    Separate Instances for Application and Database Servers.
+    Both of them scaled indepdently
+    Database server can run on private network
+
+    Scaling:
+        Vertical scaling
+    Issue:
+        Single Point of Failure
+
+# Step 3: LoadBalancer & Replciation
+    Introduce LoadBalancer and Replications
+
+    Add Multiple Application servers
+    A loadbalancer infront of them
+    Loabalancer has public IP and Application servers run on private network.Application server nodes can be spread across different geographical locations near to customer
+
+    Database servers are divided into write nodes and replication nodes.
+    Writes are performed on Master Node.
+    Master node has 1 or more replication nodes.
+    Reads are spread across replication nodes.
+    These replications nodes can be spread across different geographical locations near to customer
+
+    Scaling:
+        Vertical scaling
+    Advantages:
+        1. Reduce latency/Performance
+        2. Fault tolerance 
+        3. Data backup
+    Challenges:
+        1. Maintaining state of sessions
+        2. Complex architecture
+        3. Data Replciation dealys [split mode]
+    LoadBalancing Techniques:
+        1. RoundRobin
+        2. Weighted RoundRobin
+        3. StickySessions
+        4. Hashing
+        5. Consistent Hashing
+
+# Step 4: CDN and Cache
+    Introducing CDN for static content and Caching for reducing heavy reads
+
+    As user base increasing, there is lot of load on application servers and Database Servers.
+    Some of these content are static in nature, those can be cached and served different.
+
+    CDN- <<Definition>>
+    Caching - <<Defintion>>
+
+    Advantages:
+        1. CDNs are located in every region , very close to customers.
+        2. Improve performance and latency as lot of static data is downloaded from CDN servers which are spread across the globe
+        3. Static data from Databases can be stored in Caching Servers(Redis/Memcache), hence reduing lot of read/network traffic
+        4. Reduce Network load on actual Databases/Application servers
+    Challenges:
+        1. May have stale information
+        2. Eviction and Expiry challenges
+        3. With improper configs, there may be heavy load on CDNs and Caching Servers
+    Techniques:
+        1. Last Recently Used (LRU)
+        2. Least Frequently Used (LFU)
+        3. Setting Expiration on content in Cache/CDN
+# Step 5: Async- MQ
+
+    Instead of long running activities in Sync mode. In order to improve latency and peformance, We peformance lot of business logic in asyn mode, so the customers  recieve acknowledgement for their actions. Actual business processing happens in asyn mode and notifies the customer later through notication services.
+
+    Processors are divided as Data Producer and Consumers and MQ is used to store and share the data between these process without knowing each other
+
+    Advantages:
+        1. Producers and Consumers are separated,can be scalled separately
+        2. Introducing of MQs enables doing multiple tasks at time. eg: Risk/fraud detection,Notifying customers, Realtime metrics for business
+        3. Improved Latency and performance by decoupling lot of process and running them separately.
+    Challenges:
+        1. State management
+        2. Order of execution of messages
+        3. Handling of Failures and Retries
+        4. Handling duplication process
+
+# Step 6: Stateless and Sharding [Store Session data]
+    
+    Application servers have session data, forcing requests of customers has to go same Application Servers.
+
+    HotSpot issues in DataLayer. one particular records have heavy read/write operations 
+    Sharding: <<Defitioin>>
+
+    Strategies:
+        1. Application Servers has to use Cache/Database(KV) to store session data, hence a request can be processed by any applciation server.
+        2. To avoid Hot spots, introduce sharding at database layer
+    Advantages:
+        1. Further improvement on availability (node failures did not cause of loss of session data)
+        2. Sharding helps to distribute load acrsoss the multiple nodes.
+    Challenges:
+        1. Sharding keys
+        2. Resharding may be difficult
+        3. Cannot run some join queries as data spread across different physical databases. [Denormalization and store data as required to run complex queries]
+        4. Improved distribution of data
+        5. More complex to manage a sharded database.
+# Step 7: Logging,Tracing, Monitoring,Metrics, Automations
+     As applciations are growing bigger and bigger
+     Logging/Tracing/Metrics
+         1. Application and Business metrics
+         2. Node level metrics
+         3. Tracing  distributed processes/transations for Understanding and debugging purpose
+     Monitoring and Alerting
+         1. Discover and Detect any hardware/software/process/Network failure
+         2. Time to detect
+         3. Alerting operations and engineering teams
+         4. Visualization 
+
+     Automations:
+         1. Testing,Building and Deployment
+         2. Auto scaling (Up/Down) based upon load/performance
+
+# Step 8: Security [TLS,Authentication and Authorication, Encryption] and Compression
+    Security:
+        1. TLS enabled
+            Server Certs and Client Certs [Mutual Authenication]
+        2. Authentication(SSO)
+            UserID/PWD/Token/OAuth/JWT
+            pre-signed upload URL
+        3. Authorization (Permissions)
+            IAM/JWT
+        4. Encryption Keys (Shared/Public keys)
+            Encrypt the sensitive data at Transit/Rest
+        5. CDN Security
+            Digital Rights Managment
+            AES encryption
+            Visual watermarking
+    Compression:
+        1. Use Compression of data while transmitting and storing to save Network/Storage costs
+        2. Improve latency and performance
+
+# Step 9: Database management and Data Integration
+    SQL/NoSQL/Object Storage/Big Data
+
+        Based upon data format,usage, we have to use different SQL/NoSQL/ObjectStorage/DFS
+
+        SQL:
+            1. traditional and well known usages for structured data
+            2. When Consistency is critical and Structure is important
+        NoSQL:
+            Types: a. Document
+                   b. K/V
+                   c. Graph Database
+                   d. Columnar Database [Vector]
+            1. Non-Structual databases
+            2. Availability is critical
+        Object Storage:
+            For Non-Text formats of data(Image/Audio/Video/files/Documents..etc)
+            1. Not a natural fit for SQL and NoSQL to store them.
+            2. File size is very big
+            3. Have its own heirarchy [Folders or files System]
+        Distributed File System:
+            1. To store historical data 
+            2. To run for AI/ML jobs
+    Data Movement and Integration
+        1. Change Data Capture
+            debezium and wal2json
+        2. File Formats
+            Parquet
+            Avro
+            Arrow
+            ORC
+        3. Chunk the bigger data into smaller ones for parallel processing
+# Step 10: Configuration Management
+    <<NOt mentioned have to fill it>>
+# Other Important informations
+    
+    Architectures
+        Monolithic
+        N-Tier
+        MVC
+        SOA - Service Oriented Architecture
+        MicroServices
+        PubSub/Event Driven
+        Serverless (Lambda)
+    Communications
+        HTTP/HTTPS (JSON)
+            polling
+            long polling 
+            WebSockets (2 ways communication)
+        GRPC (Protobuf)
+        FTP
+
+    API Gateways
+        API versioning
+        Swagger
+        Discovery
+
+    Devops
+        Jenkins
+        Git
+    Infrastructure
+        Ansible
+        Terraform
+    Orchestration
+        Docker
+        Kubernetes/Mesos
+    Deployment Strategies
+        Blue/Red
+        <<5 more>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Initital (Requirement + SA + Domain and Data)
+    Requirement Gathering
+        Functional vs Non-Functional
+    System Architecture
+        Define System Components
+        Architecture Styles at High level and component level
+        Access Scalability and Maintainability
+    Domain Design
+        Divide System into business domains
+        Loose coupled between domains and depedencies
+        Encapsulate core functionality within domain modules.
+       
+    Data Design
+        Define Data models and schemas
+        Determine DB Technologies
+        Data management policy (Retension/Encryption/Governance)
+
+# OPS ( Scalability + Reliability + Availablity + Performance) --> SPAR
+
+    Scalability
+        Horizontal and Vertical Scaling
+        Load Balancing
+        Cold/Warm start-up
+    Performance
+        Define Latency and through target
+        OPtimmize Data Structure and encoding
+        Caching Strategies
+    
+    Availability
+        Data Replication
+        Minimize System Downtime
+        Diaster Recovery
+    Reliability
+        Fault-Tolerance
+        Monitoring and Alerting
+        Recovery Plans
+
+
+# Development & Customer Exp
+
+    Security
+        Authentication & Authorization
+        Data Encryption
+        Sensitive Data Storage
+    Maintainability
+        Clear code structure and documentation
+        SDL management
+        Read the code and Rewrite Code
+        Reevalute Architecture periodically
+    Testing
+        Define unit,integration and system tests
+        Define Acceptance tests with the users
+        Define performance and security tests
+    User Experience Design
+        Intuitive, Easy nagivate, simple user interface design
+        Design usability tests
+        Responsiveness
+
+# Cost management
+    Cost Estimations
+        Hardware TCO (Total Cost of Ownership) [Cloud vs Data Centre]
+        Calculate Liecense and subscriptions
+        Estimate future scalability and Operational Costs
+    Documentation
+        Detail Technical writeups
+        Developer and User Manuals
+        External API design and documentation
+        OPS - Procedures and Tools
+
+    Migration Plan
+        TechStack Compatibility
+        Interoperability of Systems
+        Migrate the data/Trafffic
+    
+
+         
+
+Power   Approximate value   Full name   Short name
+10  1 Thousand  1 Kilobyte  1 KB
+20  1 Million   1 Megabyte  1 MB
+30  1 Billion   1 Gigabyte  1 GB
+40  1 Trillion  1 Terabyte  1 TB
+50  1 Quadrillion   1 Petabyte  1 PB
+
+Operation name  Time
+L1 cache reference  0.5 ns
+Branch mispredict   5 ns
+L2 cache reference  7 ns
+Mutex lock/unlock   100 ns
+Main memory reference   100 ns
+Compress 1K bytes with Zippy    10,000 ns = 10 µs
+Send 2K bytes over 1 Gbps network   20,000 ns = 20 µs
+Read 1 MB sequentially from memory  250,000 ns = 250 µs
+Round trip within the same datacenter   500,000 ns = 500 µs
+Disk seek   10,000,000 ns = 10 ms
+Read 1 MB sequentially from the network 10,000,000 ns = 10 ms
+Read 1 MB sequentially from disk    30,000,000 ns = 30 ms
+Send packet CA (California) ->Netherlands->CA   150,000,000 ns = 150 ms
+
+Availability %  Downtime per day    Downtime per week   Downtime per month  Downtime per year
+99%     14.40 minutes   1.68 hours  7.31 hours  3.65 days
+99.99%  8.64 seconds    1.01 minutes    4.38 minutes    52.60 minutes
+99.999%     864.00  6.05 seconds    26.30 seconds   5.26 minutes
+99.9999%    86.40 milliseconds  604.80  2.63 seconds    (0.52 mins)/31.56 seconds
+
+# Host Level Capacity
+    
+    1. How many network connections per Host
+        there are only 65535 TCP ports.
+        Unix everything is file
+        No of files open depends upon 3 parameters
+
+        fs.file-max (system-level parameter)
+        soft nofile (process level parameter)
+        fs.nr_open (process-level parameter)
+
+# Realtime Apps
+    1. Facebook messenger and Whatsapp process 60 billion messages a day.
+
+# ID creation
+    1. IDs should be unique
+    2. IDs should be sortable by time
+    3. Size
+         64-bit sequence number generator l
+    4. Types
+        Global IDs
+        Local IDs
+    5. Use ID_Generator as Separate Service/Process
+
+# Service discovery
+
+The primary role of service discovery is to recommend the best  server for a client based on the criteria like geographical location, server capacity, etc. Apache Zookeeper is a popular open-source solution for service discovery. It registers all the available  servers and picks the best  server for a client based on predefined criteria.
+
+    What is ZooKeeper?
+
+ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. All of these kinds of services are used in some form or another by distributed applications. Each time they are implemented there is a lot of work that goes into fixing the bugs and race conditions that are inevitable. Because of the difficulty of implementing these kinds of services, applications initially usually skimp on them, which make them brittle in the presence of change and difficult to manage. Even when done correctly, different implementations of these services lead to management complexity when the applications are deployed.
+
+# Video/Streaming Protocols
+    
+
+    MPEG–DASH. MPEG stands for “Moving Picture Experts Group” and DASH stands for "Dynamic Adaptive Streaming over HTTP".
+
+    Apple HLS. HLS stands for “HTTP Live Streaming”.
+
+    Microsoft Smooth Streaming.
+
+    Adobe HTTP Dynamic Streaming (HDS).
+
+     video to be played smoothly on other devices, the video must be encoded into compatible bitrates and formats. 
+     encoding formats are available; however, most of them contain two parts:
+
+    Container: This is like a basket that contains the video file, audio, and metadata. You can tell the container format by the file extension, such as .avi, .mov, or .mp4.
+
+    Codecs: These are compression and decompression algorithms aim to reduce the video size while preserving the video quality. The most used video codecs are H.264, VP9, and HEVC.
+
+# Sharding
+    Key based
+    Range Based
+    Hasing
+    Conistent Hashing
+    LookUp Map
+# RateLimiter
+    Ticket Bucket
+    Leaky Bucket
+    Fixed Window counter
+    Sliding Window log
+    Slinding Window Counter
+
+# Filters
+    Bloom Filters
+# ID Generators
+    62 (10 Digits 26 Lower Case 26 Upper Case)
+    2^62 (in Trillian)
+
+# Quorum
+  Write Consistent
+  Read consistent
+  Strict Consistent
+  Consistent is not guaranteed
+  Eventual Consistent
+# Conflict Resolution in Distributed System
+
+# Keep Alive/Leader Election
+    Paxos
+    Raft (Leader election and based upon votes)
+    Gassip Algorithms (Send to few random guys about status of you and your neighbors)
+    Multi Casting (small networks/groups)
+
+# HTTP/S Connections
+    Polling
+    Long Polling
+    WebSockets
+
+# CAP PACELC(Partition Availability Consistency Else Latency and Consistency)
+
+# ACID vs BASE
+    Atomic, Consistency,Isolation and Durability
+    Basically Available, Soft Sate,Eventually consistent
+
+
+What features are important?
+What clients do we need to support?
+ What is the average daily time spent on the product?
+ Any file size requirement for videos?
+ Do we need to support international users?
+ What are the supported video resolutions?
+ Is encryption required?
+  Can we leverage some of the existing cloud infrastructures provided by Amazon, Google, or Microsoft?
+ ----- ----- ----- ----- ----- ----- -------
+ What kind of chat app shall we design? 1 on 1 or group based?
+ Is this a mobile app? Or a web app? Or both?
+ What is the scale of this app? A startup app or massive scale?
+ For group chat, what is the group member limit?
+ What features are important for the chat app? Can it support attachment?
+ Is there a message size limit?
+ Is end-to-end encryption required?
+ How long shall we store the chat history?
+ ----------------------
+ # News Feed
+ Is this a mobile app or a web app? or both?
+ What are the most important features for the product
+ Is ths new feed sorted in reverse chronological order or a particular order? The particular order means each post is given a different weight. For instance, posts from your close friends are more important than posts from a group.
+How many friends can a user have?
+What is the traffic volume?
+Can feed contain images,videos or just text?
+
+  --------------------------------

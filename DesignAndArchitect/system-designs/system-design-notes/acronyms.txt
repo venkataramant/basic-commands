@@ -1,3 +1,0 @@
-DAU -- Daily Active User
-Read Heavy
-Write Heavy
